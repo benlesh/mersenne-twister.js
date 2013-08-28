@@ -17,7 +17,7 @@ Based off of pseudo-code found on the [Wikipedia Article about Mersenne Twister]
 var seed = 1234,
 
     //create a new generator, passing a seed value.
-    gen = new MersenneTwister,
+    gen = new MersenneTwister(seed),
     
     i, rand;
     
