@@ -1,8 +1,14 @@
 /**
- * MarsenneTwister
+ * mersenne-twister.js
  * (c) 2013 Ben Lesh
  * http://www.benlesh.com
  * MIT License
+ * 
+ * generates uniformly distributed positive integers between 0 and 0x100000000 
+ * with the MT19937 algorithm. 19937 is the size of the state in bits.
+ * 
+ * More information about Mersenne Twister can be found on wikipedia
+ * http://en.wikipedia.org/wiki/Mersenne_twister
  */
  
 function MersenneTwister(seed) {
@@ -10,11 +16,10 @@ function MersenneTwister(seed) {
     
     var mt = [seed],
         mtLen = 624,
-        _32bits = 0xFFFFFFFF,
-        last32 = 18122433253 & _32bits,
+        last32 = 18122433253 & 0xFFFFFFFF,
         index = 0;
 
-    for (i = 1; i < mtLen; i++) {
+    for (var i = 1; i < mtLen; i++) {
         mt[i] = last32 * (mt[i - 1] ^ (mt[i - 1] >> 30)) + 1;
     }
 
